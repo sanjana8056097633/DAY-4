@@ -1,0 +1,309 @@
+{
+  "name": "My workflow 7",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "220e7bf2-73f7-4d43-8baf-802ebe54addd",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -500,
+        20
+      ],
+      "id": "362491e6-c4cc-4064-a67b-6a2b1981307b",
+      "name": "Webhook",
+      "webhookId": "220e7bf2-73f7-4d43-8baf-802ebe54addd"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the input data (webhook body)\nconst input = items[0].json.body;\n\n// Extract the data\nconst username = input.username;\nconst title = input.title;\nconst date = input.date;\nconst actionItem = input.action_item;\nconst assignee = input.assignee;\nconst email = input.email;\n\n// Return the extracted data as a new object\nreturn [\n  {\n    json: {\n      username,\n      title,\n      date,\n      actionItem,\n      assignee,\n      email\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        20
+      ],
+      "id": "92e57cd4-3148-485f-9d70-5eceb58109b8",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1VHhPj7Z3aVkMJUzCsycFRsm4nF3_e4lYCR6pn5TWiYU",
+          "mode": "list",
+          "cachedResultName": "report demo cohort",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VHhPj7Z3aVkMJUzCsycFRsm4nF3_e4lYCR6pn5TWiYU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VHhPj7Z3aVkMJUzCsycFRsm4nF3_e4lYCR6pn5TWiYU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "username",
+              "displayName": "username",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "actionItem",
+              "displayName": "actionItem",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "assignee",
+              "displayName": "assignee",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        0,
+        0
+      ],
+      "id": "5aa1981f-95de-49e2-abcb-81c21a826282",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jYCCeXgDPv1h0Nqt",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1VHhPj7Z3aVkMJUzCsycFRsm4nF3_e4lYCR6pn5TWiYU",
+          "mode": "list",
+          "cachedResultName": "report demo cohort",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VHhPj7Z3aVkMJUzCsycFRsm4nF3_e4lYCR6pn5TWiYU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VHhPj7Z3aVkMJUzCsycFRsm4nF3_e4lYCR6pn5TWiYU/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        220,
+        0
+      ],
+      "id": "e3664673-3ab6-4299-b9cc-2d58a424ec53",
+      "name": "Google Sheets1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jYCCeXgDPv1h0Nqt",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Act as a productivity assistant. A team meeting was conducted where project tasks were discussed and assigned.\nThe following information has been submitted by an employee.\n\nYour task is to analyze the details and generate a concise, professional email outlining the action items, assigned tasks, and the due date.\n\nMeeting Details:\n\nName: {{ $json['username'] }}\n\nTopic: {{ $json['title'] }}\n\nTask Allocated: {{ $json['actionItem'] }}\n\nDue Date: {{ $json['date'] }}\n\nInstructions:\n\nFormat the output as a professional email body.\n\nClearly list action items and responsibilities.\n\nMention the due date.\n\nKeep the content short, direct, and informative.\n\nDo not include a subject line.\n\nGenerate the final email content that can be sent to the employee.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        420,
+        0
+      ],
+      "id": "d1970f51-9484-4f31-8bb7-139b12f3ec10",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-1.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        480,
+        300
+      ],
+      "id": "d2e486ab-72e1-412f-a3a5-f121bce538c5",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "0ykqRrC7CDUNy7fn",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Google Sheets1').item.json.email }}",
+        "subject": "=submit lesson plan\n",
+        "emailType": "text",
+        "message": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        780,
+        0
+      ],
+      "id": "f7baee75-58a9-41e1-af70-028f4e166783",
+      "name": "Gmail",
+      "webhookId": "ace3a7cd-4cb4-4b4c-a22b-025399b17ef7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "8DKGWuQWdD8ZmTn5",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a704a0e1-5b42-4db9-99be-8cef5d5cd997",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "91a129e13840748f5d9e74900e90ceec684c158848d4ae8d1d490f9f1c74d211"
+  },
+  "id": "wjgCt4VlhiBx6755",
+  "tags": []
+}
